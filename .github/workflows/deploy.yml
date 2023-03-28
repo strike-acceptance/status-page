@@ -1,0 +1,39 @@
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  actions: write
+  contents: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+          fetch-depth: '0'
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.111.3'
+          extended: true
+
+      - name: Build
+        run: 'hugo --minify'
+
+      # Note: First deployment is expected to fail.
+      # See https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-first-deployment-with-github_token
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
