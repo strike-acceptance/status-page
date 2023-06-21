@@ -70,10 +70,10 @@ languageCode: en
 # You can also define whether missing
 # translations should get placeholders.
 #
-# For defaultContentLanguage—
+# For defaultContentLanguage-
 # Default: `en`
 #
-# For enableMissingTranslationPlaceholders—
+# For enableMissingTranslationPlaceholders-
 # do not set it to true for languages other
 # than English! When tested with Lithuanian,
 # it would add unnecesary placeholders to
@@ -154,12 +154,14 @@ params:
   # https://github.com/cstate/cstate/wiki/Customization
   systems:
     - name: Website
-      description: The main website.
       category: Uncategorized
       link: https://www.strikeacceptance.com/
-    - name: API
-      description: The guts of the application.
+    - name: Dealer Portal
       category: Uncategorized
+      link: https://www.strikeacceptance.com/portal/apps
+    # - name: API
+    #   description: The guts of the application.
+    #   category: Uncategorized
 
   # What date format to use?
   #
@@ -169,15 +171,15 @@ params:
   # Technical: GOLANG/HUGO .Date.Format & dateFormat
   #
   # dateFormat Default: "January 2, 2006 at 3:04 PM"
-  # shortDateFormat Default: "15:04 — Jan 2"
+  # shortDateFormat Default: "15:04 - Jan 2"
   dateFormat: January 2, 2006 at 3:04 PM UTC
-  shortDateFormat: 15:04 UTC — Jan 2
+  shortDateFormat: 15:04 UTC - Jan 2
 
   # Should relative time (x min ago) be used?
   #
   # IMPORTANT: In the frontmatter, the dates MUST be in
   # the UTC time zone for this to work preperly. If you
-  # use Netlify CMS, all good — the CMS picks UTC time
+  # use Netlify CMS, all good - the CMS picks UTC time
   # by default. Otherwise, there may be very inaccurate
   # times if multiple time zones are in your issue files.
   #
